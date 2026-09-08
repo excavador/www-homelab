@@ -20,4 +20,4 @@ that tracks what is in the rack and what it cost.
 
 Talos Linux, Cilium in native routing, Argo CD, VictoriaMetrics, OpenBao for
 secrets, and a Turing Pi 2 whose firmware became
-[a project of its own](https://turing.tsarev.id).
+[a project of its own](https://turing.excavador.xyz).
