@@ -1,0 +1,21 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.17.3/.schema/devbox.schema.json",
+  "packages": {
+    "python313": "latest",
+    "uv": "latest",
+    "just": "latest",
+    "gh": "latest"
+  },
+  "env": {
+    "UV_PROJECT_ENVIRONMENT": "$PWD/.venv",
+    "VIRTUAL_ENV": "$PWD/.venv",
+    "PATH": "$PWD/.venv/bin:$PATH"
+  },
+  "shell": {
+    "init_hook": [
+      "[ -d \"$VIRTUAL_ENV\" ] || uv venv --quiet || echo 'devbox: uv venv failed'",
+      "uv pip install --quiet -r requirements.txt || echo 'devbox: dependency install FAILED -- mkdocs will be missing'",
+      "echo 'www: just --list'"
+    ]
+  }
+}

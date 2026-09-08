@@ -1,0 +1,11 @@
+# Pinned to what actually resolved, not to invented numbers. These sites are
+# built by CI and by a workstation, and a docs theme that renders differently
+# in the two is a bug nobody notices until a screenshot disagrees with a page.
+#
+# Resolved 2026-09-08. Bump deliberately: `uv pip install -U -r` then re-freeze.
+mkdocs==1.6.1
+mkdocs-material==9.7.7
+mkdocs-material-extensions==1.3.1
+mkdocs-git-revision-date-localized-plugin==1.5.4
+mkdocs-redirects==1.2.3
+pymdown-extensions==11.0.2

@@ -1,0 +1,61 @@
+# One site, one repository: GitHub Pages binds a custom domain per repo, so
+# excavador.xyz, homelab.excavador.xyz and turing.excavador.xyz cannot share
+# one. INHERIT worked across directories and cannot work across repositories;
+# the block below is generated into each of the three and drifts if edited in
+# only one.
+site_name: Homelab
+site_description: The tooling that runs a four-node Kubernetes cluster at home
+site_url: https://homelab.excavador.xyz
+repo_url: https://github.com/excavador/www-homelab
+edit_uri: ""
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - content.action.edit
+    - search.suggest
+    - search.highlight
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle: {icon: material/brightness-auto, name: follow the system}
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle: {icon: material/brightness-7, name: dark}
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle: {icon: material/brightness-4, name: light}
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc: {permalink: true}
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed: {alternate_style: true}
+  - pymdownx.highlight: {anchor_linenums: true}
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+
+plugins:
+  - search
+  # Every page says when it was last touched. These sites describe a moving
+  # target -- repositories that release often -- and a doc page with no date
+  # invites the reader to assume it is current.
+  - git-revision-date-localized:
+      enable_creation_date: false
+      fallback_to_build_date: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/excavador
