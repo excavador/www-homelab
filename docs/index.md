@@ -65,7 +65,7 @@ health-gated A/B update that reverts a bad image by itself, a temperature
 sensor the board never had, a kernel-driven fan, and Prometheus metrics behind
 a credential that cannot touch the control API.
 
-That one grew into [a project of its own](https://turing.excavador.xyz).
+That one grew into [a project of its own](https://turingpi.xyz).
 
 ## What is not here
 
