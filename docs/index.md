@@ -16,9 +16,32 @@ pod between nodes. A pull-through registry mirror sits in front of the public
 registries, so an image the estate has seen once does not need the internet
 again.
 
-This site is a directory, not a manual. Each tool's documentation lives with
-the tool — a second copy here would only be a second copy to go stale. What
-follows is enough to tell whether something is worth your time, and a link.
+Three pages describe the estate itself:
+
+<div class="grid cards" markdown>
+
+-   [**The machines and the network**](topology.md)
+
+    Two Turing Pi 2 boards, a Pi 5, an x86 builder, a switch and a router —
+    what is wired to what, how it is addressed, and what happens when the
+    fibre dies.
+
+-   [**Getting in from outside**](access.md)
+
+    A tunnel with no open ports for browsers, a private mesh for
+    administration, and why those are deliberately not the same path.
+
+-   [**What runs on it, and why that**](stack.md)
+
+    The Kubernetes components, each with the reason it was chosen — including
+    the ones that replaced an earlier choice.
+
+</div>
+
+The rest of this page is a directory of the tooling, not a manual. Each tool's
+documentation lives with the tool — a second copy here would only be a second
+copy to go stale. What follows is enough to tell whether something is worth
+your time, and a link.
 
 ## Talking to infrastructure
 
@@ -77,14 +100,25 @@ health-gated A/B update that reverts a bad image by itself, a temperature
 sensor the board never had, a kernel-driven fan, and Prometheus metrics behind
 a credential that cannot touch the control API.
 
-That one grew into [a project of its own](https://turingpi.xyz).
+That one grew into [a project of its own](https://turingpi.xyz). What the
+controller does for the modules around it is on the
+[topology page](topology.md).
 
 ## What is not here
 
-The cluster's own configuration — Talos machine configs, Argo applications,
-network policy, secrets wiring — is private. Not because any single piece is
-sensitive, but because a public map of one specific network is a liability with
-no matching benefit to anyone else.
+The **shape** of the estate is described on the three pages above: what the
+hardware is, how it is addressed, how it is reached, what runs on it and why.
+None of that is sensitive. It is an RFC 1918 network behind two layers of NAT
+with no inbound ports, and the addresses in it mean nothing to anyone who is
+not already on it.
 
-The parts worth reusing are the ones above, and they are deliberately
-standalone: none of them assumes this estate.
+The **configuration** is a different matter and stays private: the Talos machine
+configs, the Argo applications, the network policy, the secrets wiring, and
+anything that would tell you which door is currently unlocked rather than which
+doors exist.
+
+So: the design, yes — it is the part that might be useful to someone building
+something similar. The running state, no.
+
+The parts worth reusing outright are the repositories above, and they are
+deliberately standalone: none of them assumes this estate.
