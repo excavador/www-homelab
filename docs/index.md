@@ -1,8 +1,20 @@
 # Homelab
 
-A four-node Kubernetes cluster running on Turing RK1 modules, with a Raspberry
-Pi 5 as a control-plane node. Talos Linux, Cilium in native routing, Argo CD,
-VictoriaMetrics, OpenBao. Everything is GitOps; nothing is clicked.
+A ten-node Kubernetes cluster: eight Turing RK1 modules across two Turing Pi 2
+boards, a Raspberry Pi 5, and an x86 builder for amd64 images. The control
+plane sits in three failure domains, so losing a whole board does not lose the
+cluster.
+
+Talos Linux — no SSH, no shell, no package manager, configured only through an
+API. Cilium in native routing with eBPF. Argo CD reconciles everything;
+nothing is clicked. VictoriaMetrics, VictoriaLogs and VictoriaTraces for
+observability, OpenBao for secrets, dex for operator identity.
+
+Storage comes in three tiers: NVMe on each node, a RAID1 mirror on each of the
+two storage nodes for bulk, and Longhorn for the volumes that have to follow a
+pod between nodes. A pull-through registry mirror sits in front of the public
+registries, so an image the estate has seen once does not need the internet
+again.
 
 This site is a directory, not a manual. Each tool's documentation lives with
 the tool — a second copy here would only be a second copy to go stale. What
