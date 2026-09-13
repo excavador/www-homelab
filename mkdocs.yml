@@ -4,7 +4,7 @@
 # the block below is generated into each of the three and drifts if edited in
 # only one.
 site_name: Homelab
-site_description: The tooling that runs a four-node Kubernetes cluster at home
+site_description: The tooling that runs a ten-node Kubernetes cluster at home
 site_url: https://homelab.excavador.xyz
 repo_url: https://github.com/excavador/www-homelab
 edit_uri: ""
